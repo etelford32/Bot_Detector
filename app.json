@@ -1,0 +1,46 @@
+{
+  "name": "ConsensusWatch",
+  "description": "Detect synthetic consensus and coordinated narrative steering in Reddit threads",
+  "keywords": ["reddit", "bot-detection", "nlp", "ai", "social-media"],
+  "website": "https://github.com/yourusername/consensuswatch",
+  "repository": "https://github.com/yourusername/consensuswatch",
+  "logo": "https://via.placeholder.com/200x200/FF4B4B/FFFFFF?text=CW",
+  "success_url": "/",
+  "stack": "container",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-redis:mini"
+    }
+  ],
+  "env": {
+    "REDDIT_CLIENT_ID": {
+      "description": "Reddit API Client ID from https://www.reddit.com/prefs/apps",
+      "required": true
+    },
+    "REDDIT_CLIENT_SECRET": {
+      "description": "Reddit API Client Secret",
+      "required": true
+    },
+    "REDDIT_USER_AGENT": {
+      "description": "User agent for Reddit API requests",
+      "value": "ConsensusWatch/0.1.0",
+      "required": false
+    },
+    "EMBEDDING_MODEL": {
+      "description": "Sentence transformer model to use",
+      "value": "all-MiniLM-L6-v2",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}

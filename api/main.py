@@ -2,8 +2,10 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 
 from api.routes import router
+from api.monitoring import router as monitoring_router
 
 # Create FastAPI app
 app = FastAPI(
@@ -23,8 +25,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Add GZip compression
+app.add_middleware(GZipMiddleware, minimum_size=1000)
+
 # Include routes
 app.include_router(router, prefix="/api/v1")
+app.include_router(monitoring_router, prefix="/api/v1", tags=["monitoring"])
 
 
 @app.on_event("startup")

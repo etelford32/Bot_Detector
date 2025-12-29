@@ -54,6 +54,43 @@ REDDIT_USER_AGENT=ConsensusWatch/0.1.0
 
 [Get Reddit API credentials here](https://www.reddit.com/prefs/apps)
 
+## 🚀 Quick Start & Deployment
+
+### Fastest Way to Get Started
+
+```bash
+# Deploy to Streamlit Cloud (FREE):
+# 1. Fork this repo
+# 2. Visit https://share.streamlit.io
+# 3. Deploy dashboard/app_new.py
+# 4. Add your Reddit API secrets
+# Done! Live in 2 minutes.
+```
+
+**See [QUICKSTART.md](QUICKSTART.md) for detailed guides.**
+
+### Local Development
+
+```bash
+# Quick start
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+streamlit run dashboard/app_new.py
+```
+
+### Docker Deployment
+
+```bash
+# One command to run everything
+docker-compose up --build
+
+# Or use the deployment helper
+./deploy.sh
+```
+
+**See [DEPLOYMENT.md](DEPLOYMENT.md) for all deployment options.**
+
 ## 🎮 Usage
 
 ### CLI

@@ -1,0 +1,40 @@
+name: consensuswatch
+region: nyc
+
+services:
+  - name: web
+    github:
+      repo: yourusername/consensuswatch
+      branch: main
+      deploy_on_push: true
+    dockerfile_path: Dockerfile
+    http_port: 8501
+    instance_count: 1
+    instance_size_slug: basic-xs
+    routes:
+      - path: /
+    health_check:
+      http_path: /_stcore/health
+      initial_delay_seconds: 60
+      period_seconds: 30
+      timeout_seconds: 10
+      success_threshold: 1
+      failure_threshold: 3
+    envs:
+      - key: REDDIT_CLIENT_ID
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: REDDIT_CLIENT_SECRET
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: REDDIT_USER_AGENT
+        value: "ConsensusWatch/0.1.0"
+        scope: RUN_TIME
+      - key: EMBEDDING_MODEL
+        value: "all-MiniLM-L6-v2"
+        scope: RUN_TIME
+
+databases:
+  - name: redis
+    engine: REDIS
+    production: false
