@@ -13,7 +13,9 @@ Given a Reddit thread or subreddit over a time window, ConsensusWatch outputs a 
 - **Temporal Pattern Analysis**: Detects suspicious timing and burst patterns
 - **Graph-based Coordination Detection**: Identifies clusters of accounts with coordinated behavior
 - **Explainable Results**: Human-readable rationales for detection decisions
-- **Multiple Interfaces**: CLI, REST API, and web dashboard
+- **Multiple Interfaces**: CLI, REST API, and comprehensive web dashboard
+- **Interactive Visualizations**: Rich graphs and charts for analysis results
+- **Batch Analysis**: Analyze multiple threads across subreddits
 
 ## 📊 Synthetic Consensus Index
 
@@ -102,9 +104,28 @@ curl -X POST "http://localhost:8000/analyze" \
 ### Web Dashboard
 
 ```bash
-# Launch Streamlit dashboard
+# Launch comprehensive web interface
+streamlit run dashboard/app_new.py
+
+# Or use the original simple dashboard
 streamlit run dashboard/app.py
 ```
+
+**Features:**
+- 🏠 **Home**: Interactive introduction and feature showcase
+- 🔍 **Analyze Thread**: Single thread analysis with comprehensive visualizations
+- 📊 **Batch Analysis**: Analyze multiple threads from a subreddit
+- 📚 **Documentation**: Complete methodology and usage guide
+- ℹ️ **About**: Project information and ethics
+
+**Visualizations Include:**
+- Score gauge with risk levels
+- Component score breakdowns (bar & radar charts)
+- Similarity heatmaps
+- Temporal burst detection graphs
+- Network interaction graphs
+- Cluster visualizations (2D projections)
+- Metrics comparison tables
 
 ## 📁 Project Structure
 
